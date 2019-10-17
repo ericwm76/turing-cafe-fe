@@ -1,5 +1,6 @@
 import React from 'react';
 import Cards from '../Cards/Cards'
+import './CardsContainer.css'
 
 const CardsContainer = ({ reservations }) => {
   const cards = reservations.map(reservation => {
@@ -13,7 +14,7 @@ const CardsContainer = ({ reservations }) => {
   })
 
   return (
-    <div>
+    <div className="cards-container">
       {cards}
     </div>
   )
