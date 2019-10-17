@@ -20,18 +20,16 @@ class Form extends Component {
     e.preventDefault();
     if (this.state.name && this.state.date && this.state.time && this.state.guests) {
       this.props.createNewReservation(this.state.name, this.state.date, this.state.time, this.state.guests)
-    } else {
-      return <p>Fields cannot be blank.</p>
     }
   }
 
   render() {
     return (
       <div>
-        <input name='name' value={this.state.name} type='text' placeholder='Name' onChange={this.handleChange}/>
-        <input name='date' value={this.state.date} type='date' placeholder='Date' onChange={this.handleChange}/>
-        <input name='time' value={this.state.time} type='text' placeholder='Time' onChange={this.handleChange}/>
-        <input name='guests' value={this.state.guests} type='number' placeholder='Number of guests' onChange={this.handleChange}/>
+        <input className='name-input' name='name' value={this.state.name} type='text' placeholder='Name' onChange={this.handleChange}/>
+        <input className='date-input' name='date' value={this.state.date} type='date' placeholder='Date' onChange={this.handleChange}/>
+        <input className='time-input' name='time' value={this.state.time} type='text' placeholder='Time' onChange={this.handleChange}/>
+        <input className='guests-input' name='guests' value={this.state.guests} type='number' placeholder='Number of guests' onChange={this.handleChange}/>
         <button onClick={this.updateState}>Make reservation</button>
       </div>
     )
