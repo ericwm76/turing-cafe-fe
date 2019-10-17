@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getReservations } from '../apiCalls'
+import { getReservations, postReservation } from '../apiCalls'
 import CardsContainer from '../CardsContainer/CardsContainer'
 import Form from '../Form/Form'
 
@@ -21,10 +21,11 @@ class App extends Component {
   }
 
   createNewReservation = (name, date, time, guests) => {
-    const newReservation = { name: name, date: date, time: time, guests: guests }
+    const newReservation = { name: name, date: date, time: time, number: guests }
     this.setState({ 
       reservations: [...this.state.reservations, newReservation]
-    })
+    });
+    postReservation(newReservation);
   }
 
   render() {

@@ -23,7 +23,7 @@ describe('Form', () => {
 
   it('should call handleChange on change in the input field', () => {
     wrapper.instance().handleChange = jest.fn();
-    wrapper.find('input').at(0).simulate('change', mockEvent);
+    wrapper.find('.name-input').at(0).simulate('change', mockEvent);
     expect(wrapper.instance().handleChange).toHaveBeenCalled();
   })
 
@@ -55,8 +55,6 @@ describe('Form', () => {
 
     wrapper.instance().updateState(mockEvent);
     expect(createNewReservation).toHaveBeenCalled();
-
-
   })
 
 })

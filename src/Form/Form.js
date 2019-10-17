@@ -23,7 +23,7 @@ class Form extends Component {
     }
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <input className='name-input' name='name' value={this.state.name} type='text' placeholder='Name' onChange={this.handleChange}/>
