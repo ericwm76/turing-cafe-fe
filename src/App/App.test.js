@@ -1,9 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme'
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+
+describe('App', () => {
+  it('should match the snapshot', () => {
+    let wrapper = shallow(<App />);
+
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('updates state when createNewReservation is called', () => {
+    let wrapper = shallow(<App />);
+
+    wrapper.instance().createNewReservation('Bill', '10/20/30', '2:30', 45);
+
+    expect(wrapper.state('reservations')[0]).toEqual({ name: 'Bill', date: '10/20/30', time: '2:30', guests: 45 })
+  })
 });
